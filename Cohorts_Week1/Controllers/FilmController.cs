@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cohorts_Week1.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/films")]
     public class FilmController : ControllerBase
     {
         private static List<Film> FilmList = new List<Film>();
