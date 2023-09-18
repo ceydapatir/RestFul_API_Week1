@@ -12,7 +12,7 @@ namespace Cohorts_Week1.Controllers
     {
         private static List<Film> FilmList = new List<Film>();
         
-        // api/Film
+        // api/films
         //Gets and returns all films
         [HttpGet] 
         public List<Film> GetFilms()
@@ -21,7 +21,7 @@ namespace Cohorts_Week1.Controllers
             return filmList;
         }
 
-        // api/Film/{id}
+        // api/films/{id}
         // Searchs and returns the film with the specified ID
         [HttpGet("{id}")]
         public IActionResult GetFilmById(int id)
@@ -33,7 +33,7 @@ namespace Cohorts_Week1.Controllers
             return BadRequest("No movie matching the searched id was found.");
         }
         
-        // api/Film
+        // api/films
         // Adds movie taken as parameter via FromBody
         [HttpPost]
         public IActionResult AddFilm([FromBody] Film Film)
@@ -46,7 +46,7 @@ namespace Cohorts_Week1.Controllers
             return Ok();
         }
         
-        // api/Film/{id}
+        // api/films/{id}
         // Searchs for the film with the specified ID and updates the film with the parameter taken via FromBody
         [HttpPut("{id}")]
         public IActionResult UpdateFilmById(int id, [FromBody] Film Film)
@@ -63,7 +63,7 @@ namespace Cohorts_Week1.Controllers
             return Ok();
         }
 
-        // api/Film/{id}
+        // api/films/{id}
         //Searchs and deletes the film with the specified ID
         [HttpDelete("{id}")]
         public IActionResult DeleteFilm(int id)
@@ -76,7 +76,7 @@ namespace Cohorts_Week1.Controllers
             return Ok();
         }
 
-        // api/Film/{id}
+        // api/films/{id}
         //Searchs for the film with the specified ID and updates the film's genreId property with the parameter taken via FromBody
         [HttpPatch("{id}")]
         public IActionResult UpdateFilmGenreById(int id, [FromBody] int genreid)
