@@ -4,27 +4,27 @@
 A Restful API containing HTTP GET, POST, PUT, DELETE and PATCH action methods for a Film class object.
 
 ## ROUTES
-* GET   /api/Films
+* GET   /api/films
 ```c# 
 public List<Film> GetFilms() 
 ```
-* POST  /api/Films
+* POST  /api/films
 ```c# 
 public IActionResult AddFilm([FromBody] Film Film)
 ```
-* GET   /api/Films/{id}
+* GET   /api/films/{id}
 ```c# 
 public IActionResult GetFilmById(int id) 
 ```
-* PUT   /api/Films/{id}
+* PUT   /api/films/{id}
 ```c# 
 public IActionResult UpdateFilmById(int id, [FromBody] Film Film)
 ```
-* DELETE   /api/Films/{id}
+* DELETE   /api/films/{id}
 ```c# 
 public IActionResult DeleteFilm(int id)
 ```
-* PATCH  /api/Films/{id}
+* PATCH  /api/films/{id}
 ```c# 
 public IActionResult UpdateFilmGenreById(int id, [FromBody] int genreid)
 ```
