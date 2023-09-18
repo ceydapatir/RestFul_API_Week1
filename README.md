@@ -33,9 +33,9 @@ public IActionResult UpdateFilmGenreById(int id, [FromBody] int genreid)
 ```c#
 Film{
     id              integer($int32)
-    name	          string
-    imdb    	      number($double)
-    genreId	        integer($int32)
+    name	    string
+    imdb    	    number($double)
+    genreId	    integer($int32)
     director        string
     publishDate	    string($date-time)
 }
