@@ -11,13 +11,18 @@ namespace Cohorts_Week1.Controllers
     public class FilmController : ControllerBase
     {
         private static List<Film> FilmList = new List<Film>();
-        [HttpGet]
+        
+        // api/Film
+        //Gets and returns all films
+        [HttpGet] 
         public List<Film> GetFilms()
         {
             var filmList = FilmList.OrderBy(i => i.Id).ToList<Film>();
             return filmList;
         }
 
+        // api/Film/{id}
+        // Searchs and returns the film with the specified ID
         [HttpGet("{id}")]
         public IActionResult GetFilmById(int id)
         {
@@ -27,7 +32,9 @@ namespace Cohorts_Week1.Controllers
             }
             return BadRequest("No movie matching the searched id was found.");
         }
-
+        
+        // api/Film
+        // Adds movie taken as parameter via FromBody
         [HttpPost]
         public IActionResult AddFilm([FromBody] Film Film)
         {
@@ -38,7 +45,9 @@ namespace Cohorts_Week1.Controllers
             FilmList.Add(Film);
             return Ok();
         }
-
+        
+        // api/Film/{id}
+        // Searchs for the film with the specified ID and updates the film with the parameter taken via FromBody
         [HttpPut("{id}")]
         public IActionResult UpdateFilmById(int id, [FromBody] Film Film)
         {
@@ -54,6 +63,8 @@ namespace Cohorts_Week1.Controllers
             return Ok();
         }
 
+        // api/Film/{id}
+        //Searchs and deletes the film with the specified ID
         [HttpDelete("{id}")]
         public IActionResult DeleteFilm(int id)
         {
@@ -65,6 +76,8 @@ namespace Cohorts_Week1.Controllers
             return Ok();
         }
 
+        // api/Film/{id}
+        //Searchs for the film with the specified ID and updates the film's genreId property with the parameter taken via FromBody
         [HttpPatch("{id}")]
         public IActionResult UpdateFilmGenreById(int id, [FromBody] int genreid)
         {
@@ -72,7 +85,6 @@ namespace Cohorts_Week1.Controllers
             if(film is null){
                 return BadRequest("No movie found with this id.");
             }
-            
             film.GenreId = genreid != default ? genreid : film.GenreId;
             return Ok();
         }
